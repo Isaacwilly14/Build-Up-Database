@@ -1,0 +1,61 @@
+:root {
+  /* Typography */
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Colors */
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --text-color: #212529;
+  --bg-color: #f8f9fa;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Buttons (override Bootstrap slightly for smoother UI) */
+button, .btn {
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+button:hover, .btn:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+/* Utility: center container when needed */
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
