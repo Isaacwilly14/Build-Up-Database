@@ -1,7 +1,39 @@
+# Build_UP_ERP Frontend
 
+A professional React + Bootstrap frontend for the Build_UP_ERP Supply Chain Management system.
 
-Frontend Project Structure
+## ✨ Features
 
+- Modular, scalable architecture for supply chain management
+- React 18, Vite, Bootstrap 5, and React-Bootstrap
+- Role-based access, dynamic forms and tables for all major entities
+- Easy integration with a RESTful backend (e.g., json-server)
+- Responsive, modern UI
+
+---
+
+## 🚀 Getting Started
+
+### 1. **Install dependencies**
+
+```bash
+npm install
+```
+
+### 2. **Start development server**
+
+```bash
+npm run dev
+```
+
+- Open [http://localhost:5173](http://localhost:5173) in your browser.
+- The app will hot-reload on changes.
+
+---
+
+## 🗂️ Project Structure
+
+```plaintext
 src/
 ├── components/
 │   ├── tables/
@@ -55,16 +87,56 @@ src/
 │   ├── Groupping.jsx
 │   └── Dashboard.jsx
 ├── context/
-│   ├── AuthContext.js
-│   ├── DataContext.js  // For global state/data fetching
+│   ├── AuthContext.jsx
+│   ├── DataContext.jsx  // For global state/data fetching
 ├── services/
-│   ├── api.js          // API calls for CRUD operations
-│   └── auth.js         // Authentication logic
+│   ├── api.jsx         // API calls for CRUD operations
+│   └── auth.jsx         // Authentication logic
 ├── utils/
-│   ├── validators.js
-│   ├── helpers.js
+│   ├── validators.jsx
+│   ├── helpers.jsx
 ├── App.jsx
-├── index.js
+├── main.jsx
 └── styles/
     ├── bootstrap.min.css
     └── custom.css
+```
+
+**Key Structure Highlights:**
+
+- `components/`: Shared UI elements, tables, forms, and layout.
+- `context/`: React Context for authentication and global data.
+- `pages/`: Individual pages for each business domain/table.
+- `services/`: API connectors for backend data fetching (REST).
+- `utils/`: Utility functions, validators, helpers.
+- `styles/`: Custom styles and Bootstrap overrides.
+
+---
+
+## ⚡ Tech Stack
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [React-Bootstrap](https://react-bootstrap.github.io/)
+- [React Router](https://reactrouter.com/)
+
+---
+
+## 🔗 Backend Integration
+
+This frontend is designed to work with a RESTful backend (e.g.,  json-server or custom API).  
+See `src/services/api.js` for endpoints and data structure.
+
+---
+
+## 📄 License
+
+MIT
+
+---
+
+## 🛠️ Contribution
+
+Pull requests and suggestions are welcome!  
+See the issues section for feature requests and bugs.
