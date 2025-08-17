@@ -6,21 +6,294 @@
       "email": "admin@example.com",
       "password": "123456",
       "role": "Admin"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "email": "user@email.com",
+      "password": "12345678",
+      "role": "User"
+    },
+    {
+      "id": "3",
+      "username": "grower",
+      "email": "grower@email.com",
+      "password": "growpass",
+      "role": "Developer"
     }
   ],
-  "varieties": [],
-  "crops": [],
-  "greenhouses": [],
-  "forecast": [],
-  "tasks": [],
-  "sticking": [],
-  "transplanting": [],
-  "missingAT": [],
-  "stickingPlan": [],
-  "losses": [],
-  "seasons": [],
-  "layout": [],
-  "bedLabels": [],
-  "groupping": [],
-  "mapping": []
+  "varieties": [
+    {
+      "id": "V001",
+      "VarietyCode": "V001",
+      "VarietyName": "Roma",
+      "CropCode": "C001",
+      "SeasonID": "S001",
+      "SensID": "SEN1"
+    },
+    {
+      "id": "V002",
+      "VarietyCode": "V002",
+      "VarietyName": "Cherry",
+      "CropCode": "C002",
+      "SeasonID": "S002",
+      "SensID": "SEN2"
+    },
+    {
+      "id": "9234",
+      "VarietyCode": "VAR123",
+      "VarietyName": "variety one",
+      "CropCode": "04",
+      "SeasonID": "2025-2026",
+      "SensID": "qwxQrt184"
+    }
+  ],
+  "crops": [
+    {
+      "id": "C001",
+      "CropCode": "C001",
+      "CropName": "Tomato",
+      "Description": "Edible red fruit",
+      "DataType": "AlphaNumeric"
+    },
+    {
+      "id": "C002",
+      "CropCode": "C002",
+      "CropName": "Cucumber",
+      "Description": "Green vegetable",
+      "DataType": "AlphaNumeric"
+    }
+  ],
+  "greenhouses": [
+    {
+      "id": "G001",
+      "Greenhouse": "G001",
+      "EliteLevel": "A",
+      "Capacity": 10000,
+      "TotalBeds": 20,
+      "BedCapacity": 500,
+      "Side": "Left",
+      "Comment": "Main production",
+      "Valves": 10,
+      "BedsPerValve": 2,
+      "ValveStartPoint": "Left"
+    }
+  ],
+  "forecast": [
+    {
+      "id": 1,
+      "ForecastID": 1,
+      "PlanID": 101,
+      "Greenhouse": "G001",
+      "VarietyCode": "V001",
+      "CropCode": "C001",
+      "ForecastDate": "2025-08-03T08:00:00Z",
+      "ForecastWeek": 32,
+      "PlanSTWeek": 30,
+      "Origin": "G001",
+      "PlannedQ": 8000,
+      "ForecastQ": 7500,
+      "Balance": 500,
+      "LateWeeks": 2,
+      "Status": "On Time",
+      "Comment": "Slightly below plan",
+      "ForecastAccuracy": 94
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "TaskID": 1,
+      "TaskName": "Pruning",
+      "Greenhouse": "G001",
+      "VarietyCode": "V001",
+      "CropCode": "C001",
+      "TaskDate": "2025-08-05T09:00:00Z",
+      "Manpower": 4,
+      "DayStatus": "Active",
+      "TaskPerHour": 20,
+      "TaskPerDay": 100,
+      "TotalTask": 200,
+      "Workload": 5,
+      "TimeAllowed": "02:00",
+      "TimeTaken": "01:45",
+      "TaskBalance": 0,
+      "TaskStatus": "Completed"
+    }
+  ],
+  "sticking": [
+    {
+      "id": 1,
+      "StickingID": 1,
+      "ForecastID": 1,
+      "Greenhouse": "G001",
+      "VarietyCode": "V001",
+      "CropCode": "C001",
+      "PlanSTWeek": 30,
+      "StickingDate": "2025-07-20T08:00:00Z",
+      "StickingWeek": 29,
+      "StickingYear": 2025,
+      "Origin": "G001",
+      "PlannedQ": 8200,
+      "ForecastQ": 8000,
+      "StuckQ": 7900,
+      "Losses": 100,
+      "Balance": 100,
+      "LateWeeks": 1,
+      "Status": "Late",
+      "Comment": "Less loss than expected",
+      "CreatedBy": "admin"
+    }
+  ],
+  "transplanting": [
+    {
+      "id": 1,
+      "TransID": 1,
+      "StickingID": 1,
+      "Greenhouse": "G001",
+      "VarietyCode": "V001",
+      "CropCode": "C001",
+      "TransDate": "2025-07-27T08:00:00Z",
+      "TransWeek": 30,
+      "TransYear": 2025,
+      "StickingDate": "2025-07-20T08:00:00Z",
+      "PlantingWeek": 34,
+      "StuckQ": 7900,
+      "Losses": 50,
+      "Balance": 50,
+      "LateWeeks": 0,
+      "Status": "On Time",
+      "Comment": "",
+      "CreatedBy": "grower"
+    }
+  ],
+  "missingAT": [
+    {
+      "id": 1,
+      "MissingID": 1,
+      "VarietyCode": "V001",
+      "TransID": 1,
+      "Greenhouse": "G001",
+      "CropCode": "C001",
+      "TransDate": "2025-07-27T08:00:00Z",
+      "TransWeek": 30,
+      "TransYear": 2025,
+      "StickingWeek": 29,
+      "StickingYear": 2025,
+      "MissingQ": 20,
+      "Balance": 20,
+      "LateWeeks": 0,
+      "Status": "On Time",
+      "Comment": "Minimal losses",
+      "CreatedBy": "admin"
+    }
+  ],
+  "stickingPlan": [
+    {
+      "id": 101,
+      "PlanID": 101,
+      "CropCode": "C001",
+      "VarietyCode": "V001",
+      "Greenhouse": "G001",
+      "PlanSTWeek": 30,
+      "PlanYear": 2025,
+      "PlanWeek": 32,
+      "PlannedQ": 8200,
+      "URCPerBag": 10,
+      "URC": 820,
+      "RCS": 820,
+      "CreatedBy": "admin"
+    }
+  ],
+  "losses": [
+    {
+      "id": 1,
+      "LossID": 1,
+      "StickingID": 1,
+      "TransID": 1,
+      "VarietyCode": "V001",
+      "Greenhouse": "G001",
+      "PlanSTWeek": 30,
+      "PlanYear": 2025,
+      "PlanWeek": 32,
+      "PlannedQ": 8000,
+      "LossDate": "2025-07-28T08:00:00Z",
+      "LossWeek": 31,
+      "LossYear": 2025,
+      "TotalLosses": 100,
+      "Reason": "Disease",
+      "CreatedBy": "grower"
+    }
+  ],
+  "seasons": [
+    {
+      "id": "S001",
+      "SeasonsID": "S001",
+      "SeasonName": "Spring 2025"
+    },
+    {
+      "id": "S002",
+      "SeasonsID": "S002",
+      "SeasonName": "Summer 2025"
+    }
+  ],
+  "layout": [
+    {
+      "id": 1,
+      "LayoutID": 1,
+      "YearCode": 2025,
+      "PlantingWeek": 32,
+      "EndingWeek": 40,
+      "Greenhouse": "G001",
+      "VarietyCode": "V001",
+      "CropCode": "C001",
+      "Side": "Left",
+      "Amount": 8000,
+      "TotalQuantity": 8200,
+      "BedNr": 1,
+      "BedOrder": 1,
+      "Stock": 820
+    }
+  ],
+  "bedLabels": [
+    {
+      "id": 1,
+      "LayoutID": 1,
+      "YearCode": 2025,
+      "PlantingWeek": 32,
+      "EndingWeek": 40,
+      "Greenhouse": "G001",
+      "VarietyCode": "V001",
+      "CropCode": "C001",
+      "Side": "Left",
+      "Amount": 8000,
+      "TotalQuantity": 8200,
+      "BedNr": 1,
+      "BedOrder": 1,
+      "Stock": 820
+    }
+  ],
+  "groupping": [
+    {
+      "id": 1,
+      "GroupID": 1,
+      "Group": "A",
+      "Category": "Very Vigorous",
+      "Parameter": "Vigor",
+      "Description": "Top growth",
+      "CreatedBy": "admin"
+    }
+  ],
+  "mapping": [
+    {
+      "id": 1,
+      "MapID": 1,
+      "VarietyCode": "V001",
+      "LayoutID": "1",
+      "Quantity": 8000,
+      "OrderPriority": 1,
+      "Ratio": 1,
+      "Comment": "Primary mapping"
+    }
+  ]
 }

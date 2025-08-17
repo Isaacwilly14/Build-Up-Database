@@ -1,5 +1,12 @@
 import axios from "axios";
-const API_URL = "http://localhost:3000";
+const API_URL = "http://localhost:5000";
+
+// Login: Returns user object if credentials match, else null
+export const login = async (username, password) => {
+  const res = await axios.get(`${API_URL}/users?username=${username}&password=${password}`);
+  return res.data.length ? res.data[0] : null;
+};
+
 
 // Generic helpers
 const getAll = (resource) => axios.get(`${API_URL}/${resource}`).then(res => res.data);
@@ -85,5 +92,6 @@ export default {
   getLayout, addLayout,
   getBedLabels, addBedLabel,
   getGroupping, addGroupping,
-  getMapping, addMapping
+  getMapping, addMapping,
+  login
 };

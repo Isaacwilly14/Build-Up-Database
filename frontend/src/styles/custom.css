@@ -1,3 +1,10 @@
-body {
+@import "bootstrap-icons/font/bootstrap-icons.css";
+.sidebar {
   background-color: #f8f9fa;
+  height: 100vh;
+  border-right: 1px solid #dee2e6;
+}
+.sidebar .nav-link.active {
+  background-color: #e9ecef;
+  color: #0d6efd;
 }
