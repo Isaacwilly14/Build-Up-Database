@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import api from "../services/api";
+import apiService from "../services/api";
 
 export const AuthContext = createContext();
 
@@ -14,19 +14,30 @@ export function AuthProvider({ children }) {
 
   // Login function
   const login = async (username, password) => {
-    const user = await api.login(username, password);
-    if (user) {
-      setUser(user);
-      localStorage.setItem("user", JSON.stringify(user));
-      return true;
+    try {
+      console.log('AuthContext: Attempting login with:', { username, password });
+      const user = await apiService.auth.login(username, password);
+      console.log('AuthContext: Login result:', user);
+      if (user) {
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log('AuthContext: Login successful, user set');
+        return true;
+      }
+      console.log('AuthContext: Login failed - no user returned');
+      return false;
+    } catch (error) {
+      console.error('Login error in AuthContext:', error);
+      return false;
     }
-    return false;
   };
 
   // Logout function
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    apiService.auth.logout();
   };
 
   return (
