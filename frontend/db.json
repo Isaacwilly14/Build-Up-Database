@@ -20,6 +20,20 @@
       "email": "grower@email.com",
       "password": "growpass",
       "role": "Developer"
+    },
+    {
+      "id": "4",
+      "username": "supervisor",
+      "email": "supervisor@buildup.com",
+      "password": "super123",
+      "role": "Supervisor"
+    },
+    {
+      "id": "5",
+      "username": "manager",
+      "email": "manager@buildup.com",
+      "password": "manage456",
+      "role": "Manager"
     }
   ],
   "varieties": [
@@ -46,6 +60,54 @@
       "CropCode": "04",
       "SeasonID": "2025-2026",
       "SensID": "qwxQrt184"
+    },
+    {
+      "id": "V003",
+      "VarietyCode": "V003",
+      "VarietyName": "Beef Master",
+      "CropCode": "C001",
+      "SeasonID": "S001",
+      "SensID": "SEN3"
+    },
+    {
+      "id": "V004",
+      "VarietyCode": "V004",
+      "VarietyName": "Cherry Gold",
+      "CropCode": "C001",
+      "SeasonID": "S002",
+      "SensID": "SEN4"
+    },
+    {
+      "id": "V005",
+      "VarietyCode": "V005",
+      "VarietyName": "Green Crisp",
+      "CropCode": "C002",
+      "SeasonID": "S001",
+      "SensID": "SEN5"
+    },
+    {
+      "id": "V006",
+      "VarietyCode": "V006",
+      "VarietyName": "Sweet Bell",
+      "CropCode": "C003",
+      "SeasonID": "S002",
+      "SensID": "SEN6"
+    },
+    {
+      "id": "V007",
+      "VarietyCode": "V007",
+      "VarietyName": "Iceberg Supreme",
+      "CropCode": "C004",
+      "SeasonID": "S001",
+      "SensID": "SEN7"
+    },
+    {
+      "id": "V008",
+      "VarietyCode": "V008",
+      "VarietyName": "Romaine Elite",
+      "CropCode": "C004",
+      "SeasonID": "S002",
+      "SensID": "SEN8"
     }
   ],
   "crops": [
