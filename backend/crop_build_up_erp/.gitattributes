@@ -1,0 +1,7 @@
+# Set default behavior, in case of a .gitattributes file missing or not being correctly configured
+* text=auto
+
+# Specify text files that should always use LF line endings
+*.java text eol=lf
+*.xml text eol=lf
+*.properties text eol=lf

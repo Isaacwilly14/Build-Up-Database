@@ -1,0 +1,11 @@
+com\cropmanager\dto\RegisterDto.class
+com\cropmanager\security\SecurityConfig.class
+com\cropmanager\dto\LoginDto.class
+com\cropmanager\controller\UserController.class
+com\cropmanager\service\CustomUserDetailsService.class
+com\cropmanager\controller\AuthController.class
+com\cropmanager\model\User.class
+com\cropmanager\repository\UserRepository.class
+com\cropmanager\security\JwtUtils.class
+com\cropmanager\CropBuildUpErpApplication.class
+com\cropmanager\security\JwtAuthenticationFilter.class
