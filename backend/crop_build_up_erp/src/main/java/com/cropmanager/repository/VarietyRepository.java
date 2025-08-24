@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VarietyRepository extends JpaRepository<Variety, Long> {
+    
+    // This method checks if a Variety exists by its varietyCode
+    boolean existsByVarietyCode(String varietyCode);
 }
