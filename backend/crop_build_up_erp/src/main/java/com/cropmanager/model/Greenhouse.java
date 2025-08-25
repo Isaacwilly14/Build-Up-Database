@@ -1,75 +1,41 @@
 package com.cropmanager.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 
 @Entity
-@Table(name = "greenhouses")
+@Table(name = "tblGreenhouses")
 public class Greenhouse {
-
     @Id
+    @Column(name = "Greenhouse", length = 5)
     private String greenhouse;
-
-    private Integer totalNoOfBedsRightSide;
-    private Integer totalNoOfBedsLeftSide;
-    private Integer totalNoOfBeds;
-    private Integer totalMPPerBedOnLeftSide;
-    private Integer totalMPPerBedOnRightSide;
+    @Column(name = "TotalOfBedsRightSide")
+    private Integer totalOfBedsRightSide;
+    @Column(name = "TotalOfBedsLeftSide")
+    private Integer totalOfBedsLeftSide;
+    @Column(name = "TotalOfBeds")
+    private Integer totalOfBeds;
+    @Column(name = "TotalMPerBedXLeftSide")
+    private Integer totalMPerBedXLeftSide;
+    @Column(name = "TotalMPerBedXRightSide")
+    private Integer totalMPerBedXRightSide;
+    @Column(name = "TotalMP")
     private Integer totalMP;
 
-    // Getters and Setters
-    public String getGreenhouse() {
-        return greenhouse;
-    }
-
-    public void setGreenhouse(String greenhouse) {
-        this.greenhouse = greenhouse;
-    }
-
-    public Integer getTotalNoOfBedsRightSide() {
-        return totalNoOfBedsRightSide;
-    }
-
-    public void setTotalNoOfBedsRightSide(Integer totalNoOfBedsRightSide) {
-        this.totalNoOfBedsRightSide = totalNoOfBedsRightSide;
-    }
-
-    public Integer getTotalNoOfBedsLeftSide() {
-        return totalNoOfBedsLeftSide;
-    }
-
-    public void setTotalNoOfBedsLeftSide(Integer totalNoOfBedsLeftSide) {
-        this.totalNoOfBedsLeftSide = totalNoOfBedsLeftSide;
-    }
-
-    public Integer getTotalNoOfBeds() {
-        return totalNoOfBeds;
-    }
-
-    public void setTotalNoOfBeds(Integer totalNoOfBeds) {
-        this.totalNoOfBeds = totalNoOfBeds;
-    }
-
-    public Integer getTotalMPPerBedOnLeftSide() {
-        return totalMPPerBedOnLeftSide;
-    }
-
-    public void setTotalMPPerBedOnLeftSide(Integer totalMPPerBedOnLeftSide) {
-        this.totalMPPerBedOnLeftSide = totalMPPerBedOnLeftSide;
-    }
-
-    public Integer getTotalMPPerBedOnRightSide() {
-        return totalMPPerBedOnRightSide;
-    }
-
-    public void setTotalMPPerBedOnRightSide(Integer totalMPPerBedOnRightSide) {
-        this.totalMPPerBedOnRightSide = totalMPPerBedOnRightSide;
-    }
-
-    public Integer getTotalMP() {
-        return totalMP;
-    }
-
-    public void setTotalMP(Integer totalMP) {
-        this.totalMP = totalMP;
-    }
+    public String getGreenhouse() { return greenhouse; }
+    public void setGreenhouse(String greenhouse) { this.greenhouse = greenhouse; }
+    public Integer getTotalOfBedsRightSide() { return totalOfBedsRightSide; }
+    public void setTotalOfBedsRightSide(Integer totalOfBedsRightSide) { this.totalOfBedsRightSide = totalOfBedsRightSide; }
+    public Integer getTotalOfBedsLeftSide() { return totalOfBedsLeftSide; }
+    public void setTotalOfBedsLeftSide(Integer totalOfBedsLeftSide) { this.totalOfBedsLeftSide = totalOfBedsLeftSide; }
+    public Integer getTotalOfBeds() { return totalOfBeds; }
+    public void setTotalOfBeds(Integer totalOfBeds) { this.totalOfBeds = totalOfBeds; }
+    public Integer getTotalMPerBedXLeftSide() { return totalMPerBedXLeftSide; }
+    public void setTotalMPerBedXLeftSide(Integer totalMPerBedXLeftSide) { this.totalMPerBedXLeftSide = totalMPerBedXLeftSide; }
+    public Integer getTotalMPerBedXRightSide() { return totalMPerBedXRightSide; }
+    public void setTotalMPerBedXRightSide(Integer totalMPerBedXRightSide) { this.totalMPerBedXRightSide = totalMPerBedXRightSide; }
+    public Integer getTotalMP() { return totalMP; }
+    public void setTotalMP(Integer totalMP) { this.totalMP = totalMP; }
 }

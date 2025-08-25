@@ -1,59 +1,25 @@
 package com.cropmanager.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 
 @Entity
-@Table(name = "varieties")
+@Table(name = "tblVarieties")
 public class Variety {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @Column(name = "VarietyCode", length = 5)
     private String varietyCode;
-    private String varietyName;
+    @Column(name = "CropCode")
     private String cropCode;
-    
-    private String subGroup; // Add this line
+    @Column(name = "VarietyName")
+    private String varietyName;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getVarietyCode() {
-        return varietyCode;
-    }
-
-    public void setVarietyCode(String varietyCode) {
-        this.varietyCode = varietyCode;
-    }
-
-    public String getVarietyName() {
-        return varietyName;
-    }
-
-    public void setVarietyName(String varietyName) {
-        this.varietyName = varietyName;
-    }
-
-    public String getCropCode() {
-        return cropCode;
-    }
-
-    public void setCropCode(String cropCode) {
-        this.cropCode = cropCode;
-    }
-
-    public String getSubGroup() {
-        return subGroup;
-    }
-
-    public void setSubGroup(String subGroup) {
-        this.subGroup = subGroup;
-    }
+    public String getVarietyCode() { return varietyCode; }
+    public void setVarietyCode(String varietyCode) { this.varietyCode = varietyCode; }
+    public String getCropCode() { return cropCode; }
+    public void setCropCode(String cropCode) { this.cropCode = cropCode; }
+    public String getVarietyName() { return varietyName; }
+    public void setVarietyName(String varietyName) { this.varietyName = varietyName; }
 }

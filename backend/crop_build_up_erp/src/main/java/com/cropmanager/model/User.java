@@ -1,83 +1,40 @@
 package com.cropmanager.model;
 
-import jakarta.persistence.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
-import java.util.Collections;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 
 @Entity
-@Table(name = "users")
-public class User implements UserDetails {
-
+@Table(name = "tblUsers")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "UserID")
+    private Integer userID;
+    @Column(name = "UserFullName")
+    private String userFullName;
+    @Column(name = "UserRole")
+    private String userRole;
+    @Column(name = "UserName")
+    private String userName;
+    @Column(name = "UserPassword")
+    private String userPassword;
+    @Column(name = "UserComputerID")
+    private String userComputerID;
 
-    private String username;
-    private String password;
-    private String role; // New field for user role
-
-    // Getters and Setters...
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
-    // Getter and Setter for the new 'role' field
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    // Spring Security UserDetails interface methods
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Use the role from the 'role' field
-        return Collections.singleton(new SimpleGrantedAuthority(this.role));
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+    public Integer getUserID() { return userID; }
+    public void setUserID(Integer userID) { this.userID = userID; }
+    public String getUserFullName() { return userFullName; }
+    public void setUserFullName(String userFullName) { this.userFullName = userFullName; }
+    public String getUserRole() { return userRole; }
+    public void setUserRole(String userRole) { this.userRole = userRole; }
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
+    public String getUserPassword() { return userPassword; }
+    public void setUserPassword(String userPassword) { this.userPassword = userPassword; }
+    public String getUserComputerID() { return userComputerID; }
+    public void setUserComputerID(String userComputerID) { this.userComputerID = userComputerID; }
 }

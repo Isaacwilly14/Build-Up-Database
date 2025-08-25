@@ -1,60 +1,46 @@
 package com.cropmanager.controller;
 
+import com.cropmanager.dto.SeasonDTO;
 import com.cropmanager.model.Season;
-import com.cropmanager.repository.SeasonRepository;
+import com.cropmanager.service.SeasonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/seasons")
 public class SeasonController {
-
     @Autowired
-    private SeasonRepository seasonRepository;
-
-    @GetMapping
-    public List<Season> getAllSeasons() {
-        return seasonRepository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Season> getSeasonById(@PathVariable Long id) {
-        Optional<Season> season = seasonRepository.findById(id);
-        return season.map(ResponseEntity::ok)
-                     .orElse(ResponseEntity.notFound().build());
-    }
-
+    private SeasonService seasonService;
     @PostMapping
-    public Season createSeason(@RequestBody Season season) {
-        return seasonRepository.save(season);
+    public ResponseEntity<Season> createSeason(@RequestBody SeasonDTO seasonDTO) {
+        Season savedSeason = seasonService.createSeason(seasonDTO);
+        return new ResponseEntity<>(savedSeason, HttpStatus.CREATED);
     }
-
+    @GetMapping
+    public ResponseEntity<List<Season>> getAllSeasons() {
+        return ResponseEntity.ok(seasonService.getAllSeasons());
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Season> getSeasonById(@PathVariable String id) {
+        Optional<Season> season = seasonService.getSeasonById(id);
+        return season.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
     @PutMapping("/{id}")
-    public ResponseEntity<Season> updateSeason(@PathVariable Long id, @RequestBody Season seasonDetails) {
-        Optional<Season> optionalSeason = seasonRepository.findById(id);
-        if (optionalSeason.isPresent()) {
-            Season existingSeason = optionalSeason.get();
-            existingSeason.setSeasonCode(seasonDetails.getSeasonCode());
-            existingSeason.setSeasonName(seasonDetails.getSeasonName());
-            existingSeason.setDescription(seasonDetails.getDescription());
-            existingSeason.setComment(seasonDetails.getComment());
-            return ResponseEntity.ok(seasonRepository.save(existingSeason));
+    public ResponseEntity<Season> updateSeason(@PathVariable String id, @RequestBody SeasonDTO seasonDTO) {
+        Season updatedSeason = seasonService.updateSeason(id, seasonDTO);
+        if (updatedSeason != null) {
+            return ResponseEntity.ok(updatedSeason);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSeason(@PathVariable Long id) {
-        if (seasonRepository.existsById(id)) {
-            seasonRepository.deleteById(id);
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Void> deleteSeason(@PathVariable String id) {
+        seasonService.deleteSeason(id);
+        return ResponseEntity.noContent().build();
     }
 }
